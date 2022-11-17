@@ -124,4 +124,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #logs password reset link into console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #logs password reset link into the terminal, not working
