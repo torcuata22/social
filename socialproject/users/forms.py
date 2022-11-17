@@ -15,7 +15,7 @@ class UserRegistrationForm(forms.ModelForm):
 #Meta class allows us to add info about the form itself
     class Meta:
         model = User
-        fields={'username', 'email', 'first_name'}
+        fields={'first_name','username', 'email'}
 
     #Check if passwords match and display message:
     def check_password(self):
