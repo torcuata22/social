@@ -16,3 +16,5 @@ def post_create(request):
         form = PostCreateForm(data=request.GET)
 
     return render(request, 'posts/create.html', {'form' : form})
+
+    
