@@ -18,7 +18,10 @@
         </div>
         <div class="px-6 py-4">
             <div class="icon-container flex gap-3">
-                <img class="w-5 h-5" src="{% static 'users/images/like.png' %}" alt="">
+                <a id="{{post.id}}" class="btn-like">
+                    <img class="w-5 h-5" src="{% static 'users/images/like.png' %}" alt="">
+                </a>
+
                 <img class="w-5 h-5" src="{% static 'users/images/comment.png' %}" alt="">
                 <img class="w-5 h-5" src="{% static 'users/images/share.png' %}" alt="">
             </div>
@@ -31,6 +34,18 @@
     <!--Card ends here-->
     {% endfor %}
 </div>
+<script type="text/javascript">
+    //console.log("this is working")
+    window.CSRF_TOKEN = "{{ csrf_token }}";
+    $(document).on('click','.btn-like', function(){
+        var post_id = this.id
+        $.ajax({
+            method:"POST",
+            url:'/posts/like',
+            data: {post_id: post_id, csrfmiddlewaretoken: window.CSRF_TOKEN}
+        })
+    })
+</script>
 {% endblock %}
 
 
