@@ -18,8 +18,13 @@
         </div>
         <div class="px-6 py-4">
             <div class="icon-container flex gap-3">
-                <a id="{{post.id}}" class="btn-like">
-                    <img class="w-5 h-5" src="{% static 'users/images/like.png' %}" alt="">
+                <a href='' id="{{post.id}}" class="btn-like">
+                    {% if logged_user in post.liked_by.all %}
+                    <img class="w-5 h-5" src="{% static 'users/images/red_like.png' %}" alt="">
+
+                    {% else %}
+                    <img class="w-5 h-5" src="{% static 'users/images/white_like.png' %}" alt="">
+                    {% endif %}
                 </a>
 
                 <img class="w-5 h-5" src="{% static 'users/images/comment.png' %}" alt="">
