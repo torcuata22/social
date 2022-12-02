@@ -25,7 +25,7 @@ def feed(request):
     return render(request, 'posts/feed.html',{'posts':posts})
 
 def like_post(request):
-    post_id = request.post.get('post_id')
+    post_id = request.POST.get('post_id') #POST, not post (or I get an error)
     post = get_object_or_404(Post, id=post_id)
     if post.liked_by.filter(id=request.user.id).exitst(): #post already been liked
         post.liked_by.remove(request.user)
