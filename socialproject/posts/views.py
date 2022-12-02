@@ -27,7 +27,7 @@ def feed(request):
 def like_post(request):
     post_id = request.POST.get('post_id') #POST, not post (or I get an error)
     post = get_object_or_404(Post, id=post_id)
-    if post.liked_by.filter(id=request.user.id).exitst(): #post already been liked
+    if post.liked_by.filter(id=request.user.id).exists(): #post already been liked
         post.liked_by.remove(request.user)
     else: #post has not been liked
         post.liked_by.add(request.user)
